@@ -47,6 +47,7 @@ namespace RatingAdjustment.Services
 
             double lvalue = (_percent_positive + (Z * Z / (2 * number_of_ratings)) - _q ) / (1 + ((Z * Z) / number_of_ratings));
             return lvalue * 5;
+            return 0.0;
             
         }
     }
