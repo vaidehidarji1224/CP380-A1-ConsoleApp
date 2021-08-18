@@ -33,14 +33,12 @@ namespace RatingAdjustment.Services
          _q = Z * Math.Sqrt((_percent_positive * (1 - _percent_positive) + Z * Z / (4 * number_of_ratings)) / number_of_ratings);
 
         }
-
-        
         public double Adjust(double stars, double number_of_ratings) {
             // TODO: Implement this!
             SetPercentPositive(stars);
             SetQ(number_of_ratings);
 
-            double lvalue = (_percent_positive + (Z * Z / (2 * number_of_ratings)) - _q ) / (1 + ((Z * Z) / number_of_ratings));
+            double lvalue = (_percent_positive + ((Z * Z) / (2 * number_of_ratings)) - _q) / (1 + ((Z * Z) / number_of_ratings)) * 5;
             return lvalue * 5;
            // return 0.0;
             
