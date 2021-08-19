@@ -39,9 +39,12 @@ namespace RatingAdjustment.Services
             SetQ(number_of_ratings);
 
             double lvalue = (_percent_positive + ((Z * Z) / (2 * number_of_ratings)) - _q) / (1 + ((Z * Z) / number_of_ratings)) * 5;
-            return lvalue * 5;
-           // return 0.0;
-            
+            if (lvalue <= 5.0)
+            { return lvalue; }
+            else
+                return stars;
+
         }
     }
 }
+ 
