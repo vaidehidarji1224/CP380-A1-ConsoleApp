@@ -34,11 +34,12 @@ namespace RatingAdjustment.Services
 
         }
         public double Adjust(double stars, double number_of_ratings) {
-            // TODO: Implement this!
-            SetPercentPositive(stars);
+            
+            SetPercentPositive(stars);  // TODO: Implement this!
             SetQ(number_of_ratings);
 
             double lvalue = (_percent_positive + ((Z * Z) / (2 * number_of_ratings)) - _q) / (1 + ((Z * Z) / number_of_ratings)) * 5;
+           
             if (lvalue <= 5.0)
             { return lvalue; }
             else
